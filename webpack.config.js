@@ -237,7 +237,9 @@ module.exports = {
         new Webpack.DllReferencePlugin({
             manifest: resolve(__dirname,  'dll/manifest.json')
         }),
-        // 将某个文件打包输出去，并在html中自动引入该资源
+        /* 将某个文件打包输出去，并在html中自动引入该资源
+			这个是引用项目中的文件，如果是引用外部网站的文件，则直接通过script标签即可
+		 */
         new AddAssetHtmlWebpackPlugin({
             filename: resolve(__dirname, 'dll/jquery.js')
         })
