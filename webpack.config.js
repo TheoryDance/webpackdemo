@@ -239,16 +239,17 @@ module.exports = {
         }),
         /* 将某个文件打包输出去，并在html中自动引入该资源
 			这个是引用项目中的文件，如果是引用外部网站的文件，则直接通过script标签即可
+			这个地方一直不得行，直接搜AddAssetHtmlWebpackPlugin对应的官方文档，测试也不得行，我怀疑很可能是版本这些问题造成的
 		 */
         new AddAssetHtmlWebpackPlugin({
-            filename: resolve(__dirname, 'dll/jquery.js')
+            filepath: resolve(__dirname, 'dll/jquery.js')
         })
     ],
     /* 
         1.可以将node_modules中代码单独打包一个chunk最终输出
         2.自动分析多入口chunk中，有没有公共的文件（要超过几十kb）。如果有会打包成单独一个chunk，不会重复打包。
     */
-    optimizetion: {
+    optimization: {
         splitChunks: {
             chunks: 'all'
         }
